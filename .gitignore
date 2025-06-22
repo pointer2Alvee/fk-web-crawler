@@ -1,0 +1,50 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Unit test / coverage results
+htmlcov/
+.coverage
+.coverage.*
+.cache
+.noseids
+nosetests.xml
+test-results.xml
+junit-*.xml
+
+# Virtual environment
+venv/
+env/
+.venv/
+ENV/
+*.env
+*.env.*
+
+# Scrapy specific
+.scrapy/
+*.log
+*.db
+*.sqlite
+
+# Output files (JSON, CSV, XML, etc.)
+*.json
+*.csv
+*.xml
+*.jl
+output/
+
+# IDE/editor folders
+.vscode/
+.idea/
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Git credentials or API keys if using dotenv
+.env
+
+# Pip dependency files (editable)
+pip-wheel-metadata/
