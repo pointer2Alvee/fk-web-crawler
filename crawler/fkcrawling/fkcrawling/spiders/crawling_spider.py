@@ -1,6 +1,9 @@
 import scrapy
 from scrapy.linkextractors import LinkExtractor
 from datetime import datetime, timezone
+from .book_schema import Book
+from pydantic import ValidationError
+
 
 from .mongodb_client import insert_to_db 
 
@@ -8,7 +11,7 @@ class CrawlingSpider(scrapy.Spider):
     name = "fkcrawler"
     allowed_domains = ["books.toscrape.com"]
     start_urls = ["https://books.toscrape.com/"]
-
+    
     def parse(self, response):
         books = response.css('article.product_pod')
         
@@ -81,12 +84,25 @@ class CrawlingSpider(scrapy.Spider):
             # ** For storing metadata
             "crawl_timestamp": datetime.now(timezone.utc).isoformat(),
             "source_url": response.url,
-            "status": status, 
+            "status": status,
+            
+            # raw HTML snapshot
+            "raw_html": response.text
         }
         
         # Insert to MongoDb
-        insert_to_db(**book_data)
+        # insert_to_db(**book_data)
         
         # Yield for Scrapy pipeline/logging
-        yield book_data 
+        #yield book_data
         
+
+        # Validate with Pydantic before inserting
+        try:
+            book = Book(**book_data)
+            insert_to_db(**book.model_dump())  
+            yield book.model_dump()
+        except ValidationError as e:
+            self.logger.warning(f"Validation failed for {response.url}: {e}")
+                
+                
