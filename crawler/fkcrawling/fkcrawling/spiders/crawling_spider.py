@@ -2,6 +2,8 @@ import scrapy
 from scrapy.linkextractors import LinkExtractor
 from datetime import datetime, timezone
 
+from .mongodb_client import insert_to_db 
+
 class CrawlingSpider(scrapy.Spider):
     name = "fkcrawler"
     allowed_domains = ["books.toscrape.com"]
@@ -37,7 +39,7 @@ class CrawlingSpider(scrapy.Spider):
     
     def parse_book(self, response):
         """
-        scrapes individual book details
+        scrapes/extracts individual book details from website
         """
         # ** Handled Unexpected Content Structures
         book_name = response.xpath("//div[@class='col-sm-6 product_main']/h1/text()").get()
@@ -62,8 +64,9 @@ class CrawlingSpider(scrapy.Spider):
             status = "partial-error" # If any one of the field is missing status = error
         else:
             status = "success"
-            
-        yield {
+        
+        # Consctructs the data  
+        book_data = {
             # Scraping individual book's data
             "book_name": book_name,
             "book_description": book_description,
@@ -81,4 +84,9 @@ class CrawlingSpider(scrapy.Spider):
             "status": status, 
         }
         
+        # Insert to MongoDb
+        insert_to_db(**book_data)
+        
+        # Yield for Scrapy pipeline/logging
+        yield book_data 
         
