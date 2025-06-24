@@ -31,13 +31,13 @@ class CrawlingSpider(scrapy.Spider):
         next_page = response.css('li.next a ::attr(href)').get()
         #page_number = int(next_page[-1][-6]) # ['catalogue/page-2.html'], [-1][-6] extracts '2' NOTE :- for testing
         
-        if next_page is not None :
-            if 'catalogue/' in next_page:
-                next_page_url = 'https://books.toscrape.com/' + next_page
-            else:
-                next_page_url = 'https://books.toscrape.com/catalogue/' + next_page
+        # if next_page is not None :
+        #     if 'catalogue/' in next_page:
+        #         next_page_url = 'https://books.toscrape.com/' + next_page
+        #     else:
+        #         next_page_url = 'https://books.toscrape.com/catalogue/' + next_page
             
-            yield response.follow(next_page_url, callback=self.parse)
+        #     yield response.follow(next_page_url, callback=self.parse)
 
     
     def parse_book(self, response):
@@ -101,8 +101,9 @@ class CrawlingSpider(scrapy.Spider):
         try:
             book = Book(**book_data)
             insert_to_db(**book.model_dump())  
-            yield book.model_dump()
+            #yield book.model_dump()
         except ValidationError as e:
             self.logger.warning(f"Validation failed for {response.url}: {e}")
-                
+        
+        
                 
