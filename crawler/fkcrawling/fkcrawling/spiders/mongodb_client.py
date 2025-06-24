@@ -1,6 +1,7 @@
 from pymongo import MongoClient
 from pymongo.errors import DuplicateKeyError
 from datetime import datetime, timezone
+import hashlib
 
 # Making a Connection with MongoClient
 client = MongoClient("mongodb+srv://fkcrawler_Alvee:fk1234@fkwebcrawler.ozzbwx0.mongodb.net/")
@@ -13,6 +14,24 @@ collection_books = db["books"]
     
 # Change Log collection/table
 change_log = db["change_log"]
+
+
+# Helper Func : ** Fingerprint Hash generator
+def compute_fingerprint(doc: dict) -> str:
+    """
+    Computes a fingerprint hash from the possible changing fields.
+    """
+    key_fields = [
+        doc.get("name", ""),
+        doc.get("price_with_tax", ""),
+        doc.get("price_without_tax", ""),
+        doc.get("availability", ""),
+        doc.get("rating", ""),
+    ]
+    
+    combined = "|".join(key_fields)
+    return hashlib.md5(combined.encode("utf-8")).hexdigest()
+
 
 # Insert Data (books) to MongoDB
 def insert_to_db(book_name, book_description, book_category,book_price_with_tax, book_price_without_tax, book_availability, book_review, book_cover_image_url, book_rating, crawl_timestamp, source_url, status, raw_html): 
@@ -30,11 +49,19 @@ def insert_to_db(book_name, book_description, book_category,book_price_with_tax,
             "review": book_review,
             "cover_image_url": book_cover_image_url,
             "rating": book_rating,
+            
+            # ** For storing metadata
             "crawl_timestamp":crawl_timestamp,
             "source_url": source_url,
             "status": status, 
+            
+            # ** raw HTML snapshot
             "raw_html" : raw_html,
     }
+    
+    # Compute content fingerprint
+    doc["fingerprint"] = compute_fingerprint(doc)   
+
     
     # Working State for insertion to db
     # inserted_book = collection_books.insert_one(doc)
@@ -52,7 +79,8 @@ def insert_to_db(book_name, book_description, book_category,book_price_with_tax,
         existing = collection_books.find_one({"source_url": source_url}) 
         
         if existing:
-            # compare and track changes
+            # ** Change Detection : compare and track all field [name,price etc] changes - without fingerprinting strategy 
+            """
             changes = {}
             for key, new_val in doc.items():
                 old_val = existing.get(key) # Retrives value/col like "book_name" of current 'key' from db
@@ -62,7 +90,45 @@ def insert_to_db(book_name, book_description, book_category,book_price_with_tax,
                         "old" : old_val,
                         "new" : new_val, 
                     }
+            """
+                    
+            # ** Change Detection : compare and track changes only fingerprint changes- with fingerprinting strategy 
+            old_fingerprint = existing.get("fingerprint")
+            new_fingerprint = doc["fingerprint"]
             
+            # ** First, checks if fingerprint-field changed
+            if old_fingerprint != new_fingerprint: #  key != "crawl_timestamp" ==> not needed as fingerprint is not compute based on crawl_timestamp 
+                
+                # ** Second, Track Changes of other fields
+                changes = {}
+                for key, new_val in doc.items():
+                    old_val = existing.get(key) # Retrives value/col like "book_name" of current 'key' from db
+                    
+                    if old_val != new_val: #  key != "crawl_timestamp" not needed
+                        changes[key] = {
+                            "old" : old_val,
+                            "new" : new_val, 
+                        }
+                
+                # Update the document        
+                collection_books.update_one({"_id": existing["_id"]}, {"$set": doc})
+                
+                # ** If changes found, update doc and log them 
+                change_log.insert_one({
+                    "source_url": source_url,
+                    "name": book_name,
+                    "timestamp": datetime.now(timezone.utc).isoformat(),
+                    "changes": {
+                        "fingerprint_changed": True,
+                        "field_changes": changes 
+                    }
+                })
+                print(f"Fingerprint/Hash changes detected & logged for: {source_url}")
+            else:
+                print(f"No change detected (fingerprint same) for: {source_url}")
+            return "updated"
+            
+            """
             # If changes found, update doc and log them 
             if changes:
                 collection_books.update_one({"_id":existing["_id"]}, {"$set" : doc})
@@ -75,7 +141,8 @@ def insert_to_db(book_name, book_description, book_category,book_price_with_tax,
                 print(f"Changes detected & logged for: {source_url}")
             else:
                 print(f"No changes for: {source_url}")
-            return "updated"
+            return "updated
+            """
          
         else:
             # insert new book + log Changes   

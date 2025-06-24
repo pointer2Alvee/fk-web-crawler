@@ -86,7 +86,7 @@ class CrawlingSpider(scrapy.Spider):
             "source_url": response.url,
             "status": status,
             
-            # raw HTML snapshot
+            # ** raw HTML snapshot
             "raw_html": response.text
         }
         
