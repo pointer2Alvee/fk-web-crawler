@@ -3,6 +3,15 @@ from pymongo.errors import DuplicateKeyError
 from datetime import datetime, timezone
 import hashlib
 
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../..")))
+from utilities.log_config import setup_logger
+
+
+# Setup log config
+log_config = setup_logger("db_logger")
+
 # Making a Connection with MongoClient
 client = MongoClient("mongodb+srv://fkcrawler_Alvee:fk1234@fkwebcrawler.ozzbwx0.mongodb.net/")
 
@@ -14,6 +23,7 @@ collection_books = db["books"]
     
 # Change Log collection/table
 change_log = db["change_log"]
+
 
 
 # Helper Func : ** Fingerprint Hash generator
@@ -99,6 +109,7 @@ def insert_to_db(book_name, book_description, book_category,book_price_with_tax,
             # ** First, checks if fingerprint-field changed
             if old_fingerprint != new_fingerprint: #  key != "crawl_timestamp" ==> not needed as fingerprint is not compute based on crawl_timestamp 
                 
+                
                 # ** Second, Track Changes of other fields
                 changes = {}
                 for key, new_val in doc.items():
@@ -109,6 +120,9 @@ def insert_to_db(book_name, book_description, book_category,book_price_with_tax,
                             "old" : old_val,
                             "new" : new_val, 
                         }
+                        
+                # ** log config - for changes
+                log_config.info(f"[ALERT!] changes detected for book:-  '{book_name}' ")
                 
                 # Update the document        
                 collection_books.update_one({"_id": existing["_id"]}, {"$set": doc})
@@ -154,6 +168,10 @@ def insert_to_db(book_name, book_description, book_category,book_price_with_tax,
                 "changes": "New book inserted"
             })
             print(f"New book Scraped and inserted + logged: {source_url}")
+            
+            # ** log config - for new book
+            log_config.info(f"[ALERT!] New added book:-  '{book_name}'  ")
+                
             return inserted.inserted_id
                 
     except DuplicateKeyError:
