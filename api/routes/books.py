@@ -17,6 +17,9 @@ db = client.scraped_books
 
 # **MongoDB schema / Getting a collection/table named "books"
 collection_books = db["books"]
+@router.get("/")
+async def home():
+    return {}
 
 # ** get all books
 @router.get("/books")
@@ -24,7 +27,8 @@ async def get_books(
     category: Optional[str] = None,
     min_price: Optional[float] = None,
     max_price: Optional[float] = None,
-    rating: Optional[str] = None,
+    rating: int = None,
+    review: int = None,
     sort_by: Optional[str] = Query(None, enum=["rating", "price_with_tax", "review"]),
     api_key: str = Depends(verify_api_key)
 ):
@@ -33,6 +37,8 @@ async def get_books(
         query["category"] = category
     if rating:
         query["rating"] = rating
+    if review:
+        query["review"] = rating
     if min_price or max_price:
         query["price_with_tax"] = {}
         if min_price:

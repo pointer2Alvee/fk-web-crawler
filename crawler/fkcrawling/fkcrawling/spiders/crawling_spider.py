@@ -60,6 +60,21 @@ class CrawlingSpider(scrapy.Spider):
         book_rating = rating_class.split()[-1] if rating_class else None
         book_cover_image_url = response.urljoin(cover_image) if cover_image else None
         
+        # Converting Necessary fields to numerics - not done here becuase problem happens in mongodb_clinet.py --> combined = "|".join(key_fields)
+        book_price_with_tax = float(book_price_without_tax.replace('£', '').strip())
+        book_price_without_tax = float(book_price_without_tax.replace('£', '').strip())
+
+        # Map text to number
+        rating_map = {
+            "One": 1,
+            "Two": 2,
+            "Three": 3,
+            "Four": 4,
+            "Five": 5
+        }
+        book_rating = rating_map.get(book_rating, None)  # Returns None if not found
+        book_review = int(book_review) if book_review and book_review.isdigit() else None
+        
         # generator to scrape data # Final safe item
         status = "" # Scraped book Status
         if not all([book_name or book_description or book_category or book_price_with_tax or book_price_without_tax 
@@ -67,7 +82,6 @@ class CrawlingSpider(scrapy.Spider):
             status = "partial-error" # If any one of the field is missing status = error
         else:
             status = "success"
-        
         # Consctructs the data  
         book_data = {
             # Scraping individual book's data

@@ -39,12 +39,12 @@ def compute_fingerprint(doc: dict) -> str:
         doc.get("rating", ""),
     ]
     
-    combined = "|".join(key_fields)
+    combined = "|".join(map(str, key_fields))
     return hashlib.md5(combined.encode("utf-8")).hexdigest()
 
 
 # Insert Data (books) to MongoDB
-def insert_to_db(book_name, book_description, book_category,book_price_with_tax, book_price_without_tax, book_availability, book_review, book_cover_image_url, book_rating, crawl_timestamp, source_url, status, raw_html): 
+def insert_to_db(book_name, book_description, book_category,book_price_with_tax:float, book_price_without_tax, book_availability, book_review, book_cover_image_url, book_rating, crawl_timestamp, source_url, status, raw_html): 
     """
     This method inserts or updates each scraped book data to mongoDB Atlas, and log any changes to a separate collection.
     """
