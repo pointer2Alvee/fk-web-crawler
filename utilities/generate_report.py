@@ -25,4 +25,3 @@ changes = list(change_log.find({"timestamp": {"$regex": f"^{date_str}"}}))
 with open(json_filename, "w", encoding="utf-8") as f:
     json.dump(changes, f, indent=4, default=str)
 print(f"JSON report saved: {json_filename}")
-
