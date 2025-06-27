@@ -8,12 +8,17 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../..")))
 from utilities.log_config import setup_logger
 
+from dotenv import load_dotenv
+load_dotenv()
+
+# Access variables
+MONGODB_URI = os.getenv("MONGODB_URI")
 
 # Setup log config
 log_config = setup_logger("db_logger")
 
 # Making a Connection with MongoClient
-client = MongoClient("mongodb+srv://fkcrawler_Alvee:fk1234@fkwebcrawler.ozzbwx0.mongodb.net/")
+client = MongoClient(MONGODB_URI)
 
 # Getting a Database named "scraped_books"
 db = client.scraped_books

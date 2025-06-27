@@ -6,23 +6,34 @@ from auth.security import verify_api_key
 from models.schemas import convert_all_books, convert_individual_book
 from fastapi_pagination import Page, paginate
 from bson.objectid import ObjectId
+from dotenv import load_dotenv
+import os
+load_dotenv()
+
+
+# from main import limiter  
 
 router = APIRouter()
 
+# Access variables
+MONGODB_URI = os.getenv("MONGODB_URI")
+
+
 # Making a Connection with MongoClient
-client = MongoClient("mongodb+srv://fkcrawler_Alvee:fk1234@fkwebcrawler.ozzbwx0.mongodb.net/")
+client = MongoClient(MONGODB_URI)
 
 # Getting a Database named "scraped_books"
 db = client.scraped_books
 
 # **MongoDB schema / Getting a collection/table named "books"
 collection_books = db["books"]
-@router.get("/")
-async def home():
-    return {}
+# @router.get("/")
+# async def home():
+#     return {}
 
 # ** get all books
-@router.get("/books")
+@router.get("/books", response_model=Page[Book])
+# @limiter.limit("100/hour")
 async def get_books(
     category: Optional[str] = None,
     min_price: Optional[float] = None,
@@ -71,15 +82,16 @@ async def get_books(
         results.append(book.model_dump(include={"book_name", "book_category", "book_price_with_tax"})) 
 
 
-    return results
+    # return results
 
     # manual serialization
     # return convert_all_books(books)
-    # # return paginate(books)
+    return paginate(books)
 
 
 @router.get("/books/{book_id}", response_model=Book)
-def get_book_by_id(book_id: str):
+# @limiter.limit("100/hour")
+def get_book_by_id(book_id: str, api_key: str = Depends(verify_api_key)):
     book_id = ObjectId(book_id)
     book = collection_books.find_one({"_id": book_id})
     

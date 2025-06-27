@@ -3,6 +3,7 @@ from routes import books, changes
 from slowapi import Limiter, _rate_limit_exceeded_handler
 from slowapi.util import get_remote_address
 from slowapi.middleware import SlowAPIMiddleware
+from fastapi_pagination import add_pagination
 
 # Create the FastAPI app
 app = FastAPI(
@@ -26,3 +27,5 @@ app.add_exception_handler(429, _rate_limit_exceeded_handler)
 # include route files to the API "app"
 app.include_router(books.router)
 app.include_router(changes.router)
+
+add_pagination(app)

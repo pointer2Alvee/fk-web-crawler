@@ -60,7 +60,7 @@ class CrawlingSpider(scrapy.Spider):
         book_rating = rating_class.split()[-1] if rating_class else None
         book_cover_image_url = response.urljoin(cover_image) if cover_image else None
         
-        # Converting Necessary fields to numerics - not done here becuase problem happens in mongodb_clinet.py --> combined = "|".join(key_fields)
+        # Converting Necessary fields to numerics -  problem happens in mongodb_clinet.py --> combined = "|".join(key_fields) -- SOLVED 
         book_price_with_tax = float(book_price_without_tax.replace('£', '').strip())
         book_price_without_tax = float(book_price_without_tax.replace('£', '').strip())
 

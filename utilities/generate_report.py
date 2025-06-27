@@ -3,9 +3,14 @@ import json
 import csv
 import os
 from datetime import datetime, timezone
+from dotenv import load_dotenv
+load_dotenv()
+
+# Access variables
+MONGODB_URI = os.getenv("MONGODB_URI")
 
 # Making a Connection with MongoClient
-client = MongoClient("mongodb+srv://fkcrawler_Alvee:fk1234@fkwebcrawler.ozzbwx0.mongodb.net/")
+client = MongoClient(MONGODB_URI)
 db = client.scraped_books
 change_log = db["change_log"]
 

@@ -1,13 +1,17 @@
 from fastapi import FastAPI, APIRouter,  HTTPException
 from pymongo.mongo_client import MongoClient
 from models.book import Book
-
+import os
 from bson.objectid import ObjectId
 test_app = FastAPI()
 test_router = APIRouter()
 
+
+# Access variables
+MONGODB_URI = os.getenv("MONGODB_URI")
+
 # basic mongoDB connection with api app "test_app"
-client = MongoClient("mongodb+srv://fkcrawler_Alvee:fk1234@fkwebcrawler.ozzbwx0.mongodb.net/")
+client = MongoClient(MONGODB_URI)
 
 # Getting a Database named "scraped_books"
 db = client.scraped_books
