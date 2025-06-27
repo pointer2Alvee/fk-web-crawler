@@ -1,5 +1,9 @@
 from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
+import sys
+import os
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from crawler.fkcrawling.fkcrawling.spiders.crawling_spider import CrawlingSpider
 
 def run_spider_once():

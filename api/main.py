@@ -1,9 +1,13 @@
 from fastapi import FastAPI
 from routes import books, changes
-from slowapi import Limiter, _rate_limit_exceeded_handler
-from slowapi.util import get_remote_address
+# from slowapi import Limiter, _rate_limit_exceeded_handler
+from slowapi import _rate_limit_exceeded_handler
+# from slowapi.util import get_remote_address
 from slowapi.middleware import SlowAPIMiddleware
 from fastapi_pagination import add_pagination
+
+from utils.rate_limiter import limiter
+
 
 #  Create FastAPI app / ** --> with Swagger UI Documentation
 app = FastAPI(
@@ -13,10 +17,10 @@ app = FastAPI(
 )
 
 # Initialize limiter
-limiter = Limiter(key_func=get_remote_address)
+# limiter = Limiter(key_func=get_remote_address)
 
 # attach limiter to app state (MUST be done before middleware)
-app.state.limiter = limiter
+app.state.limiter = limiter # Rate limiter
 
 # add SlowAPI middleware 
 app.add_middleware(SlowAPIMiddleware)

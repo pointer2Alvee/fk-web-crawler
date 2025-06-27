@@ -5,10 +5,11 @@ from models.book import Book
 from auth.security import verify_api_key
 from fastapi_pagination import Page, paginate
 from bson.objectid import ObjectId
+from fastapi import Request  
 import os
 
 # from models.schemas import convert_all_books, convert_individual_book
-# from main import limiter  
+from utils.rate_limiter import limiter  # Rate limiter
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -29,9 +30,10 @@ collection_books = db["books"]
 
 
 # ** --> Get all books
+@limiter.limit("100/hour") # Rate limiter
 @router.get("/books", response_model=Page[Book])
-# @limiter.limit("100/hour")
 async def get_books(
+    request : Request,
     category: Optional[str] = None,
     min_price: Optional[float] = None,
     max_price: Optional[float] = None,
@@ -86,10 +88,9 @@ async def get_books(
     # manual serialization - NOT USED
     # return convert_all_books(books)
 
-
+@limiter.limit("100/hour") # Rate limiter
 @router.get("/books/{book_id}", response_model=Book)
-# @limiter.limit("100/hour")
-def get_book_by_id(book_id: str, api_key: str = Depends(verify_api_key)):
+def get_book_by_id(request : Request, book_id: str, api_key: str = Depends(verify_api_key)):
     book_id = ObjectId(book_id)
     book = collection_books.find_one({"_id": book_id})
     

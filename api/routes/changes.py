@@ -6,6 +6,8 @@ from models.change import Change # not used
 
 from bson.objectid import ObjectId
 from models.schemas import convert_all_change_logs
+from fastapi import Request  
+from utils.rate_limiter import limiter
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -27,9 +29,10 @@ db = client.scraped_books
 # Get a collection/table named "change_log"
 change_log = db["change_log"]
 
+@limiter.limit("100/hour") # Rate limiter
 @router.get("/changes")
-# @limiter.limit("100/hour")
-async def get_change_log(api_key: str = Depends(verify_api_key)):
+
+async def get_change_log( request : Request, api_key: str = Depends(verify_api_key)):
     changes = list(change_log.find().sort("timestamp", -1).limit(10)) # sort reversly, show last 10 logs
     if not changes:
         raise HTTPException(status_code=404, detail="Change log not found")

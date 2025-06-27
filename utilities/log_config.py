@@ -1,6 +1,6 @@
 import logging
 import os
-
+logging.getLogger("pymongo").setLevel(logging.WARNING) # prevents all unnecessary debug logs when cralwer/scheduler run
 # Cache loggers to prevent duplicate setup
 _loggers = {}  
 

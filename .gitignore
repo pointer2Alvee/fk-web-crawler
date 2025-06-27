@@ -29,8 +29,6 @@ ENV/
 *.sqlite
 
 # Output files (JSON, CSV, XML, etc.)
-*.json
-*.csv
 *.xml
 *.jl
 output/
