@@ -1,5 +1,5 @@
-
-# 📚 FK-CRAWLER: Book Crawler with Change Detection, Scheduler, REST API
+# 📚 FK-WEB-CRAWLER: 
+### A Web Crawler project with Change Detection, Scheduler, REST API Features
 
 A fully-featured Python-based data pipeline that:
 - Crawls book data from `books.toscrape.com`
@@ -16,40 +16,58 @@ A fully-featured Python-based data pipeline that:
 ```
 FK-CRAWLER/
 │
-├── api/                         # FastAPI server
-│   ├── auth/                   # API Key Auth
-│   ├── dependencies/           # (Optional dependency injections)
-│   ├── models/                 # Pydantic schemas
-│   ├── routes/                 # API endpoints
-│   ├── main.py                 # FastAPI app entry point
+├── api/                            # FastAPI server
+│   ├── auth/                       # API Key Auth
+│   |   ├── security.py             # Authentication
+│   ├── models/                     # Pydantic schemas
+│   |   ├── book.py                 # Pydantic model for Books
+│   |   ├── change.py               # Pydantic model for Logs
+│   |   ├── schemas.py              # Serialization functions for book and logs
+│   ├── routes/                     # API endpoints
+│   |   ├── __init__.py             # 
+│   |   ├── books.py                # 
+│   |   ├── changes.py              # 
+│   ├── __init__.py                 # 
+│   ├── main_test.py                # 
+│   └── main.py                     # 
 │
-├── crawler/                    # Web scraping logic
+├── crawler/                        # Web scraping logic
 │   ├── fkcrawling/
-│       ├── spiders/            # Scrapy spiders
-│       ├── items.py            # Item definitions
-│       ├── pipelines.py        # MongoDB insertion logic
-│       ├── settings.py         # Scrapy config
-│
-├── scheduler/                  # Daily job scheduler
+│   |   ├── spiders/                # Scrapy spiders
+│   |   |   ├── __init__.py         # 
+│   |   |   ├── book_schema.py      #
+│   |   |   ├── crawling_spider.py  # 
+│   |   |   └── mongodb_client.py   #
+│   |   ├── __init__.py             #
+│   |   ├── items.py                # 
+│   |   ├── middlewares.py          # MongoDB insertion logic
+│   |   ├── pipelines.py            # MongoDB insertion logic
+│   |   ├── settings.py             # Scrapy config
+│   └── └── logs/
+│           └── activity.log        #
+│ 
+├── scheduler/                      # Daily job scheduler
 │   ├── daily_scheduler.py
-│   ├── crawler_runner.py
+│   └── crawler_runner.py
 │
-├── utilities/                  # Helper utilities
-│   ├── db_config.py            # MongoDB client
-│   ├── generate_report.py      # Daily change report
-│   ├── log_config.py           # Log setup
+├── utilities/                      # Helper utilities
+│   ├── reports/
+│   |   ├── report.json             #
+│   ├── db_config.py                # MongoDB client
+│   ├── generate_report.py          # Daily change report
+│   └── log_config.py               # Log setup
 │
-├── tests/                      # Unit & integration tests (TBD)
+├── tests/                          # Unit & integration tests (TBD)
 │
-├── logs/                       # Logging output
+├── logs/                           # Logging output
 │   ├── activity.log
 │
-├── reports/                    # Daily JSON/CSV reports
+├── reports/                        # Daily JSON/CSV reports
 │
-├── .env                        # Secure API_KEY and DB URI
+├── .env                            # Secure API_KEY and DB URI
 ├── .gitignore
 ├── requirements.txt
-├── README.md                   # This file
+├── README.md                       # This file
 └── scrapy.cfg
 ```
 
@@ -228,7 +246,7 @@ Planned with `pytest`, `mongomock`, and `httpx` for:
 | ✅ Swagger UI                            | Done       |
 | ✅ `.env` support                        | Done       |
 | ✅ Daily reports (JSON + CSV)            | Done       |
-| ✅ Screenshot/logs of scheduler/crawler | ✔️ See `/logs` |
+| ✅ Screenshot/logs of scheduler/crawler  | ✔️ See `/logs` |
 | ✅ Folder structure & README             | ✅ This file |
 
 ---
