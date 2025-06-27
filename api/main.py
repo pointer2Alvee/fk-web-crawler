@@ -5,7 +5,7 @@ from slowapi.util import get_remote_address
 from slowapi.middleware import SlowAPIMiddleware
 from fastapi_pagination import add_pagination
 
-# Create the FastAPI app
+#  Create FastAPI app / ** --> with Swagger UI Documentation
 app = FastAPI(
     title="fk-Crawler API",
     description="API to query books and track changes",
@@ -28,4 +28,5 @@ app.add_exception_handler(429, _rate_limit_exceeded_handler)
 app.include_router(books.router)
 app.include_router(changes.router)
 
+#  ** --> Pagination Support
 add_pagination(app)

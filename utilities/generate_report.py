@@ -6,12 +6,14 @@ from datetime import datetime, timezone
 from dotenv import load_dotenv
 load_dotenv()
 
-# Access variables
-MONGODB_URI = os.getenv("MONGODB_URI")
+# Connect to MongoDB
+MONGODB_URI = os.getenv("MONGODB_URI")  # Access 'MONGODB_URI' from .env
+client = MongoClient(MONGODB_URI)       # Making a Connection with MongoClient
 
-# Making a Connection with MongoClient
-client = MongoClient(MONGODB_URI)
+# Create database "scraped_books"
 db = client.scraped_books
+
+# Get collection/table "change_log" 
 change_log = db["change_log"]
 
 # Output directory

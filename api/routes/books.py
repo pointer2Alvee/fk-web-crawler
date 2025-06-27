@@ -1,37 +1,34 @@
 from fastapi import APIRouter, Query, Depends, HTTPException
 from pymongo import MongoClient
-from typing import List, Optional
+from typing import Optional
 from models.book import Book
 from auth.security import verify_api_key
-from models.schemas import convert_all_books, convert_individual_book
 from fastapi_pagination import Page, paginate
 from bson.objectid import ObjectId
-from dotenv import load_dotenv
 import os
+
+# from models.schemas import convert_all_books, convert_individual_book
+# from main import limiter  
+
+from dotenv import load_dotenv
 load_dotenv()
 
 
-# from main import limiter  
-
+# Create APi Router
 router = APIRouter()
 
-# Access variables
-MONGODB_URI = os.getenv("MONGODB_URI")
-
-
-# Making a Connection with MongoClient
-client = MongoClient(MONGODB_URI)
+# Connect to MongoDB
+MONGODB_URI = os.getenv("MONGODB_URI")  # Access 'MONGODB_URI' from .env
+client = MongoClient(MONGODB_URI)       # Making a Connection with MongoClient
 
 # Getting a Database named "scraped_books"
 db = client.scraped_books
 
-# **MongoDB schema / Getting a collection/table named "books"
+# Get collection/table "books" 
 collection_books = db["books"]
-# @router.get("/")
-# async def home():
-#     return {}
 
-# ** get all books
+
+# ** --> Get all books
 @router.get("/books", response_model=Page[Book])
 # @limiter.limit("100/hour")
 async def get_books(
@@ -61,7 +58,7 @@ async def get_books(
     if sort_by:
         books = sorted(books, key=lambda x: x.get(sort_by, 0), reverse=True)
 
-    results = []
+    validated_books = []
     for b in books:
         b["book_name"] = b.get("name")
         b["book_description"] = b.get("description")
@@ -76,17 +73,18 @@ async def get_books(
         b["source_url"] = b.get("source_url")
         
         # Auto-validation with pydantic 
-        book = Book(**b)
+        # validated_book = Book(**b)
+        
+        validated_books.append(Book(**b))
         
         # getting only 3 fields in swagger UI while all fields gets validated
-        results.append(book.model_dump(include={"book_name", "book_category", "book_price_with_tax"})) 
+        # results = validated_books.model_dump(include={"book_name", "book_category", "book_price_with_tax"})
 
+    # ** --> pagination support
+    return paginate(validated_books) 
 
-    # return results
-
-    # manual serialization
+    # manual serialization - NOT USED
     # return convert_all_books(books)
-    return paginate(books)
 
 
 @router.get("/books/{book_id}", response_model=Book)
@@ -98,7 +96,7 @@ def get_book_by_id(book_id: str, api_key: str = Depends(verify_api_key)):
     if not book:
         raise HTTPException(status_code=404, detail="Book not found")
     
-    # Rename DB keys to match Pydantic model fields
+    # Renamed DB keys to match Pydantic model fields
     book["book_name"] = book.get("name")
     book["book_description"] = book.get("description")
     book["book_category"] = book.get("category")

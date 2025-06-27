@@ -1,7 +1,8 @@
+import os
 from fastapi import APIRouter, Depends, HTTPException
 from auth.security import verify_api_key
 from pymongo import MongoClient
-from models.change import Change
+from models.change import Change # not used
 
 from bson.objectid import ObjectId
 from models.schemas import convert_all_change_logs
@@ -9,22 +10,21 @@ from models.schemas import convert_all_change_logs
 from dotenv import load_dotenv
 load_dotenv()
 
-import os
-
 # from main import limiter  
 
+# Create APi Router
 router = APIRouter()
 
-# Access variables
-MONGODB_URI = os.getenv("MONGODB_URI")
+# Connect to MongoDB
 
-# Making a Connection with MongoClient
-client = MongoClient(MONGODB_URI)
+# Connect to MongoDB
+MONGODB_URI = os.getenv("MONGODB_URI")  # Access 'MONGODB_URI' from .env
+client = MongoClient(MONGODB_URI)       # Making a Connection with MongoClient
 
-# Getting a Database named "scraped_books"
+# Get a Database named "scraped_books"
 db = client.scraped_books 
 
-# **MongoDB schema / Getting a collection/table named "change_log"
+# Get a collection/table named "change_log"
 change_log = db["change_log"]
 
 @router.get("/changes")
@@ -34,7 +34,7 @@ async def get_change_log(api_key: str = Depends(verify_api_key)):
     if not changes:
         raise HTTPException(status_code=404, detail="Change log not found")
     
-    # ** with pydantic
+    # ** with pydantic - Gives error
     # results = []
     # for c in changes:
     #     c["log_name"] = c.get("name")

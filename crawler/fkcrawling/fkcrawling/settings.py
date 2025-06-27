@@ -92,7 +92,7 @@ TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 FEED_EXPORT_ENCODING = "utf-8"
 
 
-# ** Retry logic / Transient Errors
+# ** --> Retry logic / Transient Errors
 RETRY_ENABLED = True
 RETRY_TIMES = 3  # default is 2
 RETRY_HTTP_CODES = [500, 502, 503, 504, 522, 524, 408]

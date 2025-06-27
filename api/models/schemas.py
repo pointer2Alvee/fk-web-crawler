@@ -1,4 +1,5 @@
 # Serializers :- helper function to convert MongoDB document to  dictionary
+
 def convert_individual_book(book): # Not used - pydantic used instead
     return {
         "id": str(book["_id"]),
