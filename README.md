@@ -75,6 +75,8 @@ FK-CRAWLER/
 │   └── crawler_runner.py
 │
 ├── utilities/                      # Helper utilities
+│   ├── logs/
+│   |   ├── activity.log            # activity logging
 │   ├── reports/
 │   |   ├── report.json             # Generated Report
 │   ├── assets/
@@ -82,7 +84,8 @@ FK-CRAWLER/
 │   ├── generate_report.py          # Daily changes report
 │   └── log_config.py               # Log setup
 │
-├── tests/                          # Unit & integration tests 
+├── tests/                          # Unit & integration 
+│   └── test_crawler.py 
 ├── .env                            # Secure API_KEY and mongoDB URI
 ├── .gitignore
 ├── requirements.txt                # required packages

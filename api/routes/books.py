@@ -28,6 +28,9 @@ db = client.scraped_books
 # Get collection/table "books" 
 collection_books = db["books"]
 
+@router.get("/")
+def home():
+    return {"Welcome to fk-crawler API swagger UI"}
 
 # ** --> Get all books
 @limiter.limit("100/hour") # Rate limiter

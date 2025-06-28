@@ -9,8 +9,8 @@ scheduler = BlockingScheduler()
     day=None,         # e.g. 1-31
     week=None,        # e.g. 1-53
     day_of_week=None, # e.g. 'mon', 'tue', ..., 'sun' or 0-6
-    hour=14,
-    minute=5
+    hour=15,
+    minute=18
 ) # Runs daily at 12:21 AM
 
 def scheduled_task():
