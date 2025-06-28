@@ -80,11 +80,13 @@ FK-CRAWLER/
 │   ├── reports/
 │   |   ├── report.json             # Generated Report
 │   ├── assets/
-│   |   ├── iamges/                 # images
+│   |   ├── images/                 # images
 │   ├── generate_report.py          # Daily changes report
 │   └── log_config.py               # Log setup
 │
 ├── tests/                          # Unit & integration 
+│   ├── __init__.py   
+│   ├── test_db.py   
 │   └── test_crawler.py 
 ├── .env                            # Secure API_KEY and mongoDB URI
 ├── .gitignore
@@ -211,12 +213,29 @@ Includes:
 
 Unit and integration tests will be added in `/tests/`.
 
-Planned with `pytest`, `mongomock`, and `httpx` for:
-- API endpoints
+Implemented with `pytest` for:
 - DB operations
 - Crawling output
-- Scheduler jobs
+
+Make sure you're in the root of the project and run:
+
+```bash
+pytest tests/
+```
+
+Demo Output summary :- 
+```
+===================== test session starts =================
+collected 2 items
+
+tests/test_crawler.py ....                          [66%]
+tests/test_db.py .                                  [83%]
+====================== 2 passed in 2.31s ==================
+
+```
+
 ---
+
 
 ## Demonestration
 <div style="display: flex; justify-content: space-around; align-items: center;">

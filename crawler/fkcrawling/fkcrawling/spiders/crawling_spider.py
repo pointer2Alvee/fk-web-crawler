@@ -39,7 +39,7 @@ class CrawlingSpider(scrapy.Spider):
         books = response.css('article.product_pod')
         
         # Extracts all book's url in the current page
-        for book in books[:1]: # NOTE:- for testing -  books[:1]
+        for book in books: # NOTE:- for testing -  books[:1]
             relative_url = book.css('h3 a ::attr(href)').get()
             
             # Some book_url have 'catalogue/' & some don't
@@ -53,15 +53,15 @@ class CrawlingSpider(scrapy.Spider):
 
         
         # Pagination : visits pages one after another | NOTE:- for testing - comment all  
-        # next_page = response.css('li.next a ::attr(href)').get()   
-        # if next_page is not None :
-        #     if 'catalogue/' in next_page:
-        #         next_page_url = 'https://books.toscrape.com/' + next_page
-        #     else:
-        #         next_page_url = 'https://books.toscrape.com/catalogue/' + next_page
+        next_page = response.css('li.next a ::attr(href)').get()   
+        if next_page is not None :
+            if 'catalogue/' in next_page:
+                next_page_url = 'https://books.toscrape.com/' + next_page
+            else:
+                next_page_url = 'https://books.toscrape.com/catalogue/' + next_page
             
-        #     # Recursive call to this function with the next page's url
-        #     yield response.follow(next_page_url, callback=self.parse)
+            # Recursive call to this function with the next page's url
+            yield response.follow(next_page_url, callback=self.parse)
 
     
     # Parses individual book's data from 'book_url'
