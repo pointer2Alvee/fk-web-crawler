@@ -297,5 +297,13 @@ Use [http://localhost:8000/docs](http://localhost:8000/docs) to interactively te
 
 ---
 
+### 🙏 Acknowledgements
+- Open-source contributors and net
+- Youtube videos :- 
+  * [1](https://www.youtube.com/watch?v=mBoX_JCKZTE) 
+  * [2](https://www.youtube.com/watch?v=GogxAQ2JP4A)
+  * [3](https://www.youtube.com/watch?v=rvFsGRvj9jo)
+---
+
 ## 📄 License
 MIT License – feel free to use, improve, and contribute!
