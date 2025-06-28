@@ -1,87 +1,30 @@
-# 📚 FK-WEB-CRAWLER: 
-### A Web Crawler project with Change Detection, Scheduler, REST API Features
+<div style="display: flex; justify-content: space-around; align-items: center;">
+  <img src="utilities/assets/images/pic_1.png" alt="Image 1" style="width: 100%; margin: 10px;">
+</div>
 
-A fully-featured Python-based data pipeline that:
-- Crawls book data from `books.toscrape.com`
-- Detects changes using fingerprinting
-- Stores books in MongoDB Atlas
-- Logs changes and inserts
-- Schedules daily updates
+## 📚 fk-web-crawler: 
+
+#### 📌 Summary 
+Implemented a Web Crawler system using scrapy and stored the scraped data and change logs in MongoDB with features like Change Detection, Scheduler, Report generation and REST API Features using FastAPI
+
+#### 🧠 Summary 
+A fully-featured Python-based web crawler that:
+- Crawls all pages and scrapes book data from `books.toscrape.com`
+- Stores scraped book data including metadata and raw html snapshot to MongoDB Atlas
+- Detects changes of existing books using fingerprinting strategy
+- Logs changes and inserts to DB
+- Able to resume from the last successful crawl 
+- Schedules daily updates using APScheduler
 - Serves data through a FastAPI-secured RESTful API with rate limiting and authentication
 
----
-
-## 📁 Project Structure
-
-```
-FK-CRAWLER/
-│
-├── api/                            # FastAPI server
-│   ├── auth/                       # API Key Auth
-│   |   ├── security.py             # Authentication
-│   ├── models/                     # Pydantic schemas
-│   |   ├── book.py                 # Pydantic model for Books
-│   |   ├── change.py               # Pydantic model for Logs
-│   |   ├── schemas.py              # Serialization functions for book and logs
-│   ├── routes/                     # API endpoints
-│   |   ├── __init__.py             # 
-│   |   ├── books.py                # 
-│   |   ├── changes.py              # 
-│   ├── __init__.py                 # 
-│   ├── main_test.py                # 
-│   └── main.py                     # 
-│
-├── crawler/                        # Web scraping logic
-│   ├── fkcrawling/
-│   |   ├── spiders/                # Scrapy spiders
-│   |   |   ├── __init__.py         # 
-│   |   |   ├── book_schema.py      #
-│   |   |   ├── crawling_spider.py  # 
-│   |   |   └── mongodb_client.py   #
-│   |   ├── __init__.py             #
-│   |   ├── items.py                # 
-│   |   ├── middlewares.py          # MongoDB insertion logic
-│   |   ├── pipelines.py            # MongoDB insertion logic
-│   |   ├── settings.py             # Scrapy config
-│   └── └── logs/
-│           └── activity.log        #
-│ 
-├── scheduler/                      # Daily job scheduler
-│   ├── daily_scheduler.py
-│   └── crawler_runner.py
-│
-├── utilities/                      # Helper utilities
-│   ├── reports/
-│   |   ├── report.json             #
-│   ├── db_config.py                # MongoDB client
-│   ├── generate_report.py          # Daily change report
-│   └── log_config.py               # Log setup
-│
-├── tests/                          # Unit & integration tests (TBD)
-│
-├── logs/                           # Logging output
-│   ├── activity.log
-│
-├── reports/                        # Daily JSON/CSV reports
-│
-├── .env                            # Secure API_KEY and DB URI
-├── .gitignore
-├── requirements.txt
-├── README.md                       # This file
-└── scrapy.cfg
-```
-
----
-
-## 🚀 Features
-
+#### 🚀 Features
 - ✅ Scrapy-powered web crawler
 - ✅ MongoDB Atlas integration with deduplication
-- ✅ Fingerprint-based change detection
+- ✅ Hash/Fingerprint-based change detection
 - ✅ Change logging and raw HTML snapshot
 - ✅ APScheduler-powered daily job
-- ✅ Daily change reports in JSON and CSV
-- ✅ RESTful FastAPI server:
+- ✅ Daily change reports in JSON
+- ✅ RESTful FastAPI server using FastAPI:
   - `/books` with filtering, pagination, sorting
   - `/books/{book_id}` for book details
   - `/changes` to get recent logs
@@ -91,18 +34,76 @@ FK-CRAWLER/
 
 ---
 
+#### 📁 Project Structure
+
+```
+FK-CRAWLER/
+│
+├── api/                            # FastAPI server
+│   ├── auth/                      
+│   |   ├── security.py             # API-KEY Authentication
+│   ├── models/                     # Pydantic models 
+│   |   ├── book.py                 
+│   |   ├── change.py               
+│   |   ├── schemas.py              # Serialization for book and logs
+│   │   │
+│   ├── routes/                     # API endpoints
+│   |   ├── __init__.py              
+│   |   ├── books.py                 
+│   |   ├── changes.py               
+│   ├── __init__.py                  
+│   ├── main_test.py                # For testing 
+│   └── main.py                     #  
+│
+├── crawler/                        # Web scraping logic
+│   ├── fkcrawling/
+│   |   ├── spiders/                # Scrapy spiders
+│   |   |   ├── __init__.py         
+│   |   |   ├── book_schema.py      # Pydantic model
+│   |   |   ├── crawling_spider.py  # Web Crawler
+│   |   |   └── mongodb_client.py   # MongoDB connection
+│   |   ├── __init__.py             
+│   |   ├── items.py                
+│   |   ├── middlewares.py          
+│   |   ├── pipelines.py            
+│   |   ├── settings.py             # Scrapy config
+│   └── └── logs/
+│           └── activity.log        # logging
+│ 
+├── scheduler/                      # Daily job scheduler
+│   ├── daily_scheduler.py
+│   └── crawler_runner.py
+│
+├── utilities/                      # Helper utilities
+│   ├── reports/
+│   |   ├── report.json             # Generated Report
+│   ├── assets/
+│   |   ├── iamges/                 # images
+│   ├── generate_report.py          # Daily changes report
+│   └── log_config.py               # Log setup
+│
+├── tests/                          # Unit & integration tests 
+├── .env                            # Secure API_KEY and mongoDB URI
+├── .gitignore
+├── requirements.txt                # required packages
+├── README.md                       # This file
+└── scrapy.cfg
+```
+---
+
 ## 🔧 Setup Instructions
 
 ### 📦 Requirements
 
 - Python 3.10+
+- VSCode
 - MongoDB Atlas account
-- pipenv / virtualenv (recommended)
+
 
 ### 📁 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/fk-crawler.git
+git clone https://github.com/pointer2Alvee/fk-web-crawler.git
 cd fk-crawler
 ```
 
@@ -117,8 +118,8 @@ pip install -r requirements.txt
 Create a `.env` file at the root:
 
 ```
-MONGODB_URI=mongodb+srv://<user>:<pass>@cluster.mongodb.net/
-API_KEY=123456
+MONGODB_URI= <mongodb+srv://<user>:<pass>@cluster.mongodb.net/>
+API_KEY= <Set your own key>
 ```
 
 > ✅ `.env` is automatically loaded using `dotenv`.
@@ -132,14 +133,13 @@ cd crawler/fkcrawling
 scrapy crawl fkcrawler
 ```
 
-- Inserts books
-- Logs changes (if any)
-- Stores raw HTML
+- Inserts newly scraped books to MongoDB collection "books"
+- Deduplication and Logs changes (if any) to MongoDB collection "change_log"
 - Logs output to `/logs/activity.log`
 
 ---
 
-## 🗓️ Run Scheduler
+## 🗓️ Run Scheduler - Runs Cralwer + Change Report Generator
 
 ```bash
 cd scheduler
@@ -149,6 +149,7 @@ python daily_scheduler.py
 - Crawls every day using APScheduler
 - Detects new books or changes
 - Logs them in MongoDB and filesystem
+- Generates Daily change Report in JSON
 
 ---
 
@@ -171,7 +172,7 @@ All endpoints are protected via API key.
 ### Headers:
 
 ```
-FKCRAWLER-API-KEY: 123456
+FKCRAWLER-API-KEY: <Set your own key>
 ```
 
 ---
@@ -179,11 +180,11 @@ FKCRAWLER-API-KEY: 123456
 ## 📂 API Endpoints
 
 | Endpoint          | Method | Description                              |
-|------------------|--------|------------------------------------------|
-| `/books`         | GET    | Get all books (filter, sort, paginate)   |
-| `/books/{id}`    | GET    | Get book by MongoDB ObjectId             |
-| `/changes`       | GET    | Get recent changes                       |
-| `/docs`          | GET    | Swagger UI (OpenAPI spec)                |
+|-------------------|--------|------------------------------------------|
+| `/books`          | GET    | Get all books (filter, sort, paginate)   |
+| `/books/{id}`     | GET    | Get book by MongoDB ObjectId             |
+| `/changes`        | GET    | Get recent changes                       |
+| `/docs`           | GET    | Swagger UI (OpenAPI spec)                |
 
 ---
 
@@ -194,7 +195,6 @@ On successful run, you'll get:
 ```bash
 /reports/
 ├── change_report_YYYY-MM-DD.json
-├── change_report_YYYY-MM-DD.csv
 ```
 
 Includes:
@@ -213,25 +213,47 @@ Planned with `pytest`, `mongomock`, and `httpx` for:
 - DB operations
 - Crawling output
 - Scheduler jobs
+---
 
+## Demonestration
+<div style="display: flex; justify-content: space-around; align-items: center;">
+  <img src="utilities/assets/images/pic_1.png" alt="Image 1" style="width: 100%; margin: 10px;">
+</div>
 ---
 
 ## 💡 Sample MongoDB Document
 
+**books Document Structure**
 ```json
 {
   "_id": ObjectId("123..."),
   "name": "A Light in the Attic",
+  "description" : "It's hard to..",
+  "category" : "Poetry",
   "price_with_tax": 12.99,
-  "availability": "In stock",
+  "price_with_out_tax": 12.99,
+  "availability": "22",
+  "review" : 0,
+  "cover_image_url" : "https://books.toscrape.com/../fe72aea293c.jpg",
   "rating": 3,
+  "crawl_timestamp": "2025-06-27T10:00:00Z",
   "source_url": "https://books.toscrape.com/catalogue/.../index.html",
   "raw_html": "<html>...</html>",
   "fingerprint": "abc123...",
-  "crawl_timestamp": "2025-06-27T10:00:00Z"
+
 }
 ```
+**change_log Document Structure**
 
+```json
+{
+  "_id": ObjectId("123..."),
+  "source_url": "https://books.toscrape.com/catalogue/.../index.html",
+  "name": "A Light in the Attic",
+  "timestamp": "2025-06-27T10:00:00Z",
+  "changes" : Object,
+}
+```
 ---
 
 ## 🧾 Deliverables Checklist (from PDF ✅)
@@ -255,7 +277,6 @@ Planned with `pytest`, `mongomock`, and `httpx` for:
 
 Use [http://localhost:8000/docs](http://localhost:8000/docs) to interactively test all endpoints.
 
-Or import a Postman collection (see repo if added).
 
 ---
 
@@ -264,18 +285,17 @@ Or import a Postman collection (see repo if added).
 - Add unit + integration tests
 - Dockerize for consistent environments
 - Add email alerts for major changes
-- Add export formats: PDF, Excel
+- Add export formats: CSV, PDF, Excel
 
 ---
 
 ## 🧑‍💻 Author
 
-**Sadman Alvee**  
-📧 alvee@example.com  
-🔗 [GitHub](https://github.com/sadmanalvee)
+**Alvee**  
+📧 pointer2alvee@gmail.com
+🔗 [GitHub](https://github.com/pointer2Alvee)
 
 ---
 
 ## 📄 License
-
 MIT License – feel free to use, improve, and contribute!

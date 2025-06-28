@@ -24,7 +24,6 @@ ENV/
 
 # Scrapy specific
 .scrapy/
-*.log
 *.db
 *.sqlite
 

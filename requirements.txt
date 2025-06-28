@@ -1,0 +1,39 @@
+# Python
+python==3.10.11
+pip==24.3.1
+
+# Web framework
+fastapi==0.115.6
+uvicorn[standard]==0.23.1
+
+# MongoDB driver
+pymongo==4.13.2
+dnspython==2.7.0
+
+# Pydantic data validation
+pydantic==2.10.3
+pydantic-settings==2.2.1
+
+# Web scraping
+scrapy==2.12.0
+itemadapter==0.10.0
+
+# Environment variable support
+python-dotenv==1.1.0
+
+# Scheduler
+APScheduler==3.11.0
+
+# Logging rate limit & throttling
+slowapi==0.1.9
+
+# Pagination for FastAPI
+fastapi-pagination==0.13.2
+
+# Security
+python-multipart==0.0.19
+
+# Testing
+pytest==8.2.1
+httpx==0.28.0
+
