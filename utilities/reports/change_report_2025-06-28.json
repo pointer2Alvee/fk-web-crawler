@@ -1,0 +1,352 @@
+[
+    {
+        "_id": "685fa22f82f8bdc7e5b278a1",
+        "source_url": "https://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html",
+        "name": "A Light in the Attic",
+        "timestamp": "2025-06-28T08:05:03.752647+00:00",
+        "changes": "New book inserted"
+    },
+    {
+        "_id": "685fa23082f8bdc7e5b278a3",
+        "source_url": "https://books.toscrape.com/catalogue/the-nameless-city-the-nameless-city-1_940/index.html",
+        "name": "The Nameless City (The Nameless City #1)",
+        "timestamp": "2025-06-28T08:05:04.517115+00:00",
+        "changes": "New book inserted"
+    },
+    {
+        "_id": "685fa23082f8bdc7e5b278a5",
+        "source_url": "https://books.toscrape.com/catalogue/in-her-wake_980/index.html",
+        "name": "In Her Wake",
+        "timestamp": "2025-06-28T08:05:04.887114+00:00",
+        "changes": "New book inserted"
+    },
+    {
+        "_id": "685fa23182f8bdc7e5b278a7",
+        "source_url": "https://books.toscrape.com/catalogue/slow-states-of-collapse-poems_960/index.html",
+        "name": "Slow States of Collapse: Poems",
+        "timestamp": "2025-06-28T08:05:05.147390+00:00",
+        "changes": "New book inserted"
+    },
+    {
+        "_id": "685fa23282f8bdc7e5b278a9",
+        "source_url": "https://books.toscrape.com/catalogue/princess-jellyfish-2-in-1-omnibus-vol-01-princess-jellyfish-2-in-1-omnibus-1_920/index.html",
+        "name": "Princess Jellyfish 2-in-1 Omnibus, Vol. 01 (Princess Jellyfish 2-in-1 Omnibus #1)",
+        "timestamp": "2025-06-28T08:05:06.051447+00:00",
+        "changes": "New book inserted"
+    },
+    {
+        "_id": "685fa23382f8bdc7e5b278ab",
+        "source_url": "https://books.toscrape.com/catalogue/immunity-how-elie-metchnikoff-changed-the-course-of-modern-medicine_900/index.html",
+        "name": "Immunity: How Elie Metchnikoff Changed the Course of Modern Medicine",
+        "timestamp": "2025-06-28T08:05:07.231152+00:00",
+        "changes": "New book inserted"
+    },
+    {
+        "_id": "685fa23482f8bdc7e5b278ad",
+        "source_url": "https://books.toscrape.com/catalogue/algorithms-to-live-by-the-computer-science-of-human-decisions_880/index.html",
+        "name": "Algorithms to Live By: The Computer Science of Human Decisions",
+        "timestamp": "2025-06-28T08:05:08.254074+00:00",
+        "changes": "New book inserted"
+    },
+    {
+        "_id": "685fa23682f8bdc7e5b278af",
+        "source_url": "https://books.toscrape.com/catalogue/the-shadow-hero-the-shadow-hero_860/index.html",
+        "name": "The Shadow Hero (The Shadow Hero)",
+        "timestamp": "2025-06-28T08:05:10.587671+00:00",
+        "changes": "New book inserted"
+    },
+    {
+        "_id": "685fa23782f8bdc7e5b278b1",
+        "source_url": "https://books.toscrape.com/catalogue/the-bridge-to-consciousness-im-writing-the-bridge-between-science-and-our-old-and-new-beliefs_840/index.html",
+        "name": "The Bridge to Consciousness: I'm Writing the Bridge Between Science and Our Old and New Beliefs.",
+        "timestamp": "2025-06-28T08:05:11.593284+00:00",
+        "changes": "New book inserted"
+    },
+    {
+        "_id": "685fa23882f8bdc7e5b278b3",
+        "source_url": "https://books.toscrape.com/catalogue/modern-romance_820/index.html",
+        "name": "Modern Romance",
+        "timestamp": "2025-06-28T08:05:12.602275+00:00",
+        "changes": "New book inserted"
+    },
+    {
+        "_id": "685fa23982f8bdc7e5b278b5",
+        "source_url": "https://books.toscrape.com/catalogue/dark-notes_800/index.html",
+        "name": "Dark Notes",
+        "timestamp": "2025-06-28T08:05:13.626798+00:00",
+        "changes": "New book inserted"
+    },
+    {
+        "_id": "685fa23a82f8bdc7e5b278b7",
+        "source_url": "https://books.toscrape.com/catalogue/whole-lotta-creativity-going-on-60-fun-and-unusual-exercises-to-awaken-and-strengthen-your-creativity_780/index.html",
+        "name": "Whole Lotta Creativity Going On: 60 Fun and Unusual Exercises to Awaken and Strengthen Your Creativity",
+        "timestamp": "2025-06-28T08:05:14.653714+00:00",
+        "changes": "New book inserted"
+    },
+    {
+        "_id": "685fa23b82f8bdc7e5b278b9",
+        "source_url": "https://books.toscrape.com/catalogue/the-power-of-habit-why-we-do-what-we-do-in-life-and-business_760/index.html",
+        "name": "The Power of Habit: Why We Do What We Do in Life and Business",
+        "timestamp": "2025-06-28T08:05:15.662889+00:00",
+        "changes": "New book inserted"
+    },
+    {
+        "_id": "685fa23c82f8bdc7e5b278bb",
+        "source_url": "https://books.toscrape.com/catalogue/swell-a-year-of-waves_740/index.html",
+        "name": "Swell: A Year of Waves",
+        "timestamp": "2025-06-28T08:05:16.706866+00:00",
+        "changes": "New book inserted"
+    },
+    {
+        "_id": "685fa23d82f8bdc7e5b278bd",
+        "source_url": "https://books.toscrape.com/catalogue/my-name-is-lucy-barton_720/index.html",
+        "name": "My Name Is Lucy Barton",
+        "timestamp": "2025-06-28T08:05:17.973477+00:00",
+        "changes": "New book inserted"
+    },
+    {
+        "_id": "685fa23e82f8bdc7e5b278bf",
+        "source_url": "https://books.toscrape.com/catalogue/hold-your-breath-search-and-rescue-1_700/index.html",
+        "name": "Hold Your Breath (Search and Rescue #1)",
+        "timestamp": "2025-06-28T08:05:18.872994+00:00",
+        "changes": "New book inserted"
+    },
+    {
+        "_id": "685fa23f82f8bdc7e5b278c1",
+        "source_url": "https://books.toscrape.com/catalogue/code-name-verity-code-name-verity-1_680/index.html",
+        "name": "Code Name Verity (Code Name Verity #1)",
+        "timestamp": "2025-06-28T08:05:19.898123+00:00",
+        "changes": "New book inserted"
+    },
+    {
+        "_id": "685fa24082f8bdc7e5b278c3",
+        "source_url": "https://books.toscrape.com/catalogue/all-the-light-we-cannot-see_660/index.html",
+        "name": "All the Light We Cannot See",
+        "timestamp": "2025-06-28T08:05:20.907160+00:00",
+        "changes": "New book inserted"
+    },
+    {
+        "_id": "685fa24182f8bdc7e5b278c5",
+        "source_url": "https://books.toscrape.com/catalogue/the-midnight-watch-a-novel-of-the-titanic-and-the-californian_640/index.html",
+        "name": "The Midnight Watch: A Novel of the Titanic and the Californian",
+        "timestamp": "2025-06-28T08:05:21.915067+00:00",
+        "changes": "New book inserted"
+    },
+    {
+        "_id": "685fa24382f8bdc7e5b278c7",
+        "source_url": "https://books.toscrape.com/catalogue/hide-away-eve-duncan-20_620/index.html",
+        "name": "Hide Away (Eve Duncan #20)",
+        "timestamp": "2025-06-28T08:05:23.105048+00:00",
+        "changes": "New book inserted"
+    },
+    {
+        "_id": "685fa24482f8bdc7e5b278c9",
+        "source_url": "https://books.toscrape.com/catalogue/mothering-sunday_600/index.html",
+        "name": "Mothering Sunday",
+        "timestamp": "2025-06-28T08:05:24.099316+00:00",
+        "changes": "New book inserted"
+    },
+    {
+        "_id": "685fa24582f8bdc7e5b278cb",
+        "source_url": "https://books.toscrape.com/catalogue/without-shame_580/index.html",
+        "name": "Without Shame",
+        "timestamp": "2025-06-28T08:05:25.109504+00:00",
+        "changes": "New book inserted"
+    },
+    {
+        "_id": "685fa24682f8bdc7e5b278cd",
+        "source_url": "https://books.toscrape.com/catalogue/chernobyl-012340-the-incredible-true-story-of-the-worlds-worst-nuclear-disaster_560/index.html",
+        "name": "Chernobyl 01:23:40: The Incredible True Story of the World's Worst Nuclear Disaster",
+        "timestamp": "2025-06-28T08:05:26.116968+00:00",
+        "changes": "New book inserted"
+    },
+    {
+        "_id": "685fa24782f8bdc7e5b278cf",
+        "source_url": "https://books.toscrape.com/catalogue/roller-girl_540/index.html",
+        "name": "Roller Girl",
+        "timestamp": "2025-06-28T08:05:27.309895+00:00",
+        "changes": "New book inserted"
+    },
+    {
+        "_id": "685fa24882f8bdc7e5b278d1",
+        "source_url": "https://books.toscrape.com/catalogue/heaven-is-for-real-a-little-boys-astounding-story-of-his-trip-to-heaven-and-back_520/index.html",
+        "name": "Heaven is for Real: A Little Boy's Astounding Story of His Trip to Heaven and Back",
+        "timestamp": "2025-06-28T08:05:28.334787+00:00",
+        "changes": "New book inserted"
+    },
+    {
+        "_id": "685fa24982f8bdc7e5b278d3",
+        "source_url": "https://books.toscrape.com/catalogue/the-story-of-art_500/index.html",
+        "name": "The Story of Art",
+        "timestamp": "2025-06-28T08:05:29.344281+00:00",
+        "changes": "New book inserted"
+    },
+    {
+        "_id": "685fa24a82f8bdc7e5b278d5",
+        "source_url": "https://books.toscrape.com/catalogue/nightstruck-a-novel_480/index.html",
+        "name": "Nightstruck: A Novel",
+        "timestamp": "2025-06-28T08:05:30.354660+00:00",
+        "changes": "New book inserted"
+    },
+    {
+        "_id": "685fa24b82f8bdc7e5b278d7",
+        "source_url": "https://books.toscrape.com/catalogue/benjamin-franklin-an-american-life_460/index.html",
+        "name": "Benjamin Franklin: An American Life",
+        "timestamp": "2025-06-28T08:05:31.533920+00:00",
+        "changes": "New book inserted"
+    },
+    {
+        "_id": "685fa24c82f8bdc7e5b278d9",
+        "source_url": "https://books.toscrape.com/catalogue/the-barefoot-contessa-cookbook_440/index.html",
+        "name": "The Barefoot Contessa Cookbook",
+        "timestamp": "2025-06-28T08:05:32.540835+00:00",
+        "changes": "New book inserted"
+    },
+    {
+        "_id": "685fa24d82f8bdc7e5b278db",
+        "source_url": "https://books.toscrape.com/catalogue/world-without-end-the-pillars-of-the-earth-2_420/index.html",
+        "name": "World Without End (The Pillars of the Earth #2)",
+        "timestamp": "2025-06-28T08:05:33.552862+00:00",
+        "changes": "New book inserted"
+    },
+    {
+        "_id": "685fa24e82f8bdc7e5b278dd",
+        "source_url": "https://books.toscrape.com/catalogue/the-dream-thieves-the-raven-cycle-2_400/index.html",
+        "name": "The Dream Thieves (The Raven Cycle #2)",
+        "timestamp": "2025-06-28T08:05:34.559939+00:00",
+        "changes": "New book inserted"
+    },
+    {
+        "_id": "685fa24f82f8bdc7e5b278df",
+        "source_url": "https://books.toscrape.com/catalogue/isla-and-the-happily-ever-after-anna-and-the-french-kiss-3_380/index.html",
+        "name": "Isla and the Happily Ever After (Anna and the French Kiss #3)",
+        "timestamp": "2025-06-28T08:05:35.582025+00:00",
+        "changes": "New book inserted"
+    },
+    {
+        "_id": "685fa25082f8bdc7e5b278e1",
+        "source_url": "https://books.toscrape.com/catalogue/alight-the-generations-trilogy-2_360/index.html",
+        "name": "Alight (The Generations Trilogy #2)",
+        "timestamp": "2025-06-28T08:05:36.843722+00:00",
+        "changes": "New book inserted"
+    },
+    {
+        "_id": "685fa25182f8bdc7e5b278e3",
+        "source_url": "https://books.toscrape.com/catalogue/shopaholic-ties-the-knot-shopaholic-3_340/index.html",
+        "name": "Shopaholic Ties the Knot (Shopaholic #3)",
+        "timestamp": "2025-06-28T08:05:37.742319+00:00",
+        "changes": "New book inserted"
+    },
+    {
+        "_id": "685fa25282f8bdc7e5b278e5",
+        "source_url": "https://books.toscrape.com/catalogue/far-from-true-promise-falls-trilogy-2_320/index.html",
+        "name": "Far From True (Promise Falls Trilogy #2)",
+        "timestamp": "2025-06-28T08:05:38.766268+00:00",
+        "changes": "New book inserted"
+    },
+    {
+        "_id": "685fa25382f8bdc7e5b278e7",
+        "source_url": "https://books.toscrape.com/catalogue/walk-the-edge-thunder-road-2_300/index.html",
+        "name": "Walk the Edge (Thunder Road #2)",
+        "timestamp": "2025-06-28T08:05:39.777719+00:00",
+        "changes": "New book inserted"
+    },
+    {
+        "_id": "685fa25482f8bdc7e5b278e9",
+        "source_url": "https://books.toscrape.com/catalogue/the-silkworm-cormoran-strike-2_280/index.html",
+        "name": "The Silkworm (Cormoran Strike #2)",
+        "timestamp": "2025-06-28T08:05:40.783558+00:00",
+        "changes": "New book inserted"
+    },
+    {
+        "_id": "685fa25582f8bdc7e5b278eb",
+        "source_url": "https://books.toscrape.com/catalogue/the-lean-startup-how-todays-entrepreneurs-use-continuous-innovation-to-create-radically-successful-businesses_260/index.html",
+        "name": "The Lean Startup: How Today's Entrepreneurs Use Continuous Innovation to Create Radically Successful Businesses",
+        "timestamp": "2025-06-28T08:05:41.965805+00:00",
+        "changes": "New book inserted"
+    },
+    {
+        "_id": "685fa25682f8bdc7e5b278ed",
+        "source_url": "https://books.toscrape.com/catalogue/the-da-vinci-code-robert-langdon-2_240/index.html",
+        "name": "The Da Vinci Code (Robert Langdon #2)",
+        "timestamp": "2025-06-28T08:05:42.973446+00:00",
+        "changes": "New book inserted"
+    },
+    {
+        "_id": "685fa25782f8bdc7e5b278ef",
+        "source_url": "https://books.toscrape.com/catalogue/seven-days-in-the-art-world_220/index.html",
+        "name": "Seven Days in the Art World",
+        "timestamp": "2025-06-28T08:05:43.997378+00:00",
+        "changes": "New book inserted"
+    },
+    {
+        "_id": "685fa25982f8bdc7e5b278f1",
+        "source_url": "https://books.toscrape.com/catalogue/notes-from-a-small-island-notes-from-a-small-island-1_200/index.html",
+        "name": "Notes from a Small Island (Notes From a Small Island #1)",
+        "timestamp": "2025-06-28T08:05:45.004579+00:00",
+        "changes": "New book inserted"
+    },
+    {
+        "_id": "685fa25a82f8bdc7e5b278f3",
+        "source_url": "https://books.toscrape.com/catalogue/jurassic-park-jurassic-park-1_180/index.html",
+        "name": "Jurassic Park (Jurassic Park #1)",
+        "timestamp": "2025-06-28T08:05:46.169695+00:00",
+        "changes": "New book inserted"
+    },
+    {
+        "_id": "685fa25b82f8bdc7e5b278f5",
+        "source_url": "https://books.toscrape.com/catalogue/girl-in-the-blue-coat_160/index.html",
+        "name": "Girl in the Blue Coat",
+        "timestamp": "2025-06-28T08:05:47.177991+00:00",
+        "changes": "New book inserted"
+    },
+    {
+        "_id": "685fa25c82f8bdc7e5b278f7",
+        "source_url": "https://books.toscrape.com/catalogue/civilization-and-its-discontents_140/index.html",
+        "name": "Civilization and Its Discontents",
+        "timestamp": "2025-06-28T08:05:48.359229+00:00",
+        "changes": "New book inserted"
+    },
+    {
+        "_id": "685fa25d82f8bdc7e5b278f9",
+        "source_url": "https://books.toscrape.com/catalogue/annie-on-my-mind_120/index.html",
+        "name": "Annie on My Mind",
+        "timestamp": "2025-06-28T08:05:49.381743+00:00",
+        "changes": "New book inserted"
+    },
+    {
+        "_id": "685fa25e82f8bdc7e5b278fb",
+        "source_url": "https://books.toscrape.com/catalogue/fruits-basket-vol-2-fruits-basket-2_100/index.html",
+        "name": "Fruits Basket, Vol. 2 (Fruits Basket #2)",
+        "timestamp": "2025-06-28T08:05:50.543603+00:00",
+        "changes": "New book inserted"
+    },
+    {
+        "_id": "685fa25f82f8bdc7e5b278fd",
+        "source_url": "https://books.toscrape.com/catalogue/the-secret-healer_80/index.html",
+        "name": "The Secret Healer",
+        "timestamp": "2025-06-28T08:05:51.566622+00:00",
+        "changes": "New book inserted"
+    },
+    {
+        "_id": "685fa26082f8bdc7e5b278ff",
+        "source_url": "https://books.toscrape.com/catalogue/the-bhagavad-gita_60/index.html",
+        "name": "The Bhagavad Gita",
+        "timestamp": "2025-06-28T08:05:52.591665+00:00",
+        "changes": "New book inserted"
+    },
+    {
+        "_id": "685fa26182f8bdc7e5b27901",
+        "source_url": "https://books.toscrape.com/catalogue/on-the-road-duluoz-legend_40/index.html",
+        "name": "On the Road (Duluoz Legend)",
+        "timestamp": "2025-06-28T08:05:53.602650+00:00",
+        "changes": "New book inserted"
+    },
+    {
+        "_id": "685fa26282f8bdc7e5b27903",
+        "source_url": "https://books.toscrape.com/catalogue/frankenstein_20/index.html",
+        "name": "Frankenstein",
+        "timestamp": "2025-06-28T08:05:54.623680+00:00",
+        "changes": "New book inserted"
+    }
+]

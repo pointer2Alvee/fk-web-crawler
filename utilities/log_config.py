@@ -4,13 +4,18 @@ logging.getLogger("pymongo").setLevel(logging.WARNING) # prevents all unnecessar
 # Cache loggers to prevent duplicate setup
 _loggers = {}  
 
-def setup_logger(name="crawler_logger", log_file="logs/activity.log"):
+def setup_logger(name="crawler_logger", log_file=None):
     """
     Create or reuse a logger instance with a file handler only once.
     """
     if name in _loggers:
         return _loggers[name]
 
+     # If log_file is not passed, set default relative to this file
+    if log_file is None:
+        current_dir = os.path.dirname(__file__)
+        log_file = os.path.join(current_dir, "logs", "activity.log")
+        
     os.makedirs(os.path.dirname(log_file), exist_ok=True)
     logger = logging.getLogger(name)
     logger.setLevel(logging.INFO)
