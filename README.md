@@ -50,10 +50,12 @@ FK-CRAWLER/
 │   ├── routes/                     # API endpoints
 │   |   ├── __init__.py              
 │   |   ├── books.py                 
-│   |   ├── changes.py               
+│   |   ├── changes.py
+│   ├── utils/                     # API endpoints
+│   |   ├── rate_limiter.py
 │   ├── __init__.py                  
-│   ├── main_test.py                # For testing 
-│   └── main.py                     #  
+│   ├── main_test.py                # For testing
+│   └── main.py                     # main api file
 │
 ├── crawler/                        # Web scraping logic
 │   ├── fkcrawling/
@@ -66,9 +68,7 @@ FK-CRAWLER/
 │   |   ├── items.py                
 │   |   ├── middlewares.py          
 │   |   ├── pipelines.py            
-│   |   ├── settings.py             # Scrapy config
-│   └── └── logs/
-│           └── activity.log        # logging
+│   └── ├── settings.py             # Scrapy config
 │ 
 ├── scheduler/                      # Daily job scheduler
 │   ├── daily_scheduler.py
@@ -91,8 +91,7 @@ FK-CRAWLER/
 ├── .env                            # Secure API_KEY and mongoDB URI
 ├── .gitignore
 ├── requirements.txt                # required packages
-├── README.md                       # This file
-└── scrapy.cfg
+└── README.md                       # This file
 ```
 ---
 
