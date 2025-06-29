@@ -171,8 +171,8 @@ cd api
 uvicorn main:app --reload
 ```
 
-- API is hosted at `http://localhost:8000`
-- Swagger docs: `http://localhost:8000/docs`
+- API is hosted at `http://127.0.0.1:8000/`
+- Swagger docs: `http://127.0.0.1:8000/docs`
 
 ---
 
