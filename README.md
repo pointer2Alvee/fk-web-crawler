@@ -1,5 +1,5 @@
 <div style="display: flex; justify-content: space-around; align-items: center;">
-  <img src="utilities/assets/images/pic_1.png" alt="Image 1" style="width: 100%; margin: 10px;">
+  <img src="utilities/assets/images/fastapi_1.png" alt="Image 1" style="width: 100%; margin: 10px;">
 </div>
 
 ## 📚 fk-web-crawler: 
@@ -249,22 +249,22 @@ tests/test_db.py .                                  [83%]
 ### - mongoDB
 ---
 <div style="display: flex; justify-content: space-around; align-items: center;">
-  <img src="utilities/assets/images/mdb_1.png" alt="Image 1" style="width: 100%; margin: 10px;">
+  <img src="utilities/assets/images/mdb_1.PNG" alt="Image 1" style="width: 100%; margin: 10px;">
 </div>
 <div style="display: flex; justify-content: space-around; align-items: center;">
-  <img src="utilities/assets/images/mdb_2.png" alt="Image 1" style="width: 50%; margin: 10px;">
-   <img src="utilities/assets/images/mdb_3.png" alt="Image 1" style="width: 50%; margin: 10px;">
+  <img src="utilities/assets/images/mdb_2.PNG" alt="Image 1" style="width: 50%; margin: 10px;">
+   <img src="utilities/assets/images/mdb_3.PNG" alt="Image 1" style="width: 50%; margin: 10px;">
 </div>
 
 
 ### - log
 <div style="display: flex; justify-content: space-around; align-items: center;">
-  <img src="utilities/assets/images/log.png" alt="Image 1" style="width: 100%; margin: 10px;">
+  <img src="utilities/assets/images/log.PNG" alt="Image 1" style="width: 100%; margin: 10px;">
 </div>
 
 ### - report
 <div style="display: flex; justify-content: space-around; align-items: center;">
-  <img src="utilities/assets/images/report.png" alt="Image 1" style="width: 100%; margin: 10px;">
+  <img src="utilities/assets/images/report.PNG" alt="Image 1" style="width: 100%; margin: 10px;">
 </div>
 
 ### - fastapi
@@ -274,18 +274,18 @@ tests/test_db.py .                                  [83%]
 
 #### - fastapi - GET/Books
 <div style="display: flex; justify-content: space-around; align-items: center;">
-  <img src="utilities/assets/images/fastapi_2.png" alt="Image 1" style="width: 100%; margin: 10px;">
+  <img src="utilities/assets/images/fastapi_2.PNG" alt="Image 1" style="width: 100%; margin: 10px;">
 </div>
 <div style="display: flex; justify-content: space-around; align-items: center;">
-  <img src="utilities/assets/images/fastapi_3.png" alt="Image 1" style="width: 100%; margin: 10px;">
+  <img src="utilities/assets/images/fastapi_3.PNG" alt="Image 1" style="width: 100%; margin: 10px;">
 </div>
 
 #### - fastapi - GET/{Book_id} & GET/{change_log}
 <div style="display: flex; justify-content: space-around; align-items: center;">
-  <img src="utilities/assets/images/fastapi_4.png" alt="Image 1" style="width: 100%; margin: 10px;">
+  <img src="utilities/assets/images/fastapi_4.PNG" alt="Image 1" style="width: 100%; margin: 10px;">
 </div>
 <div style="display: flex; justify-content: space-around; align-items: center;">
-  <img src="utilities/assets/images/fastapi_5.png" alt="Image 1" style="width: 100%; margin: 10px;">
+  <img src="utilities/assets/images/fastapi_5.PNG" alt="Image 1" style="width: 100%; margin: 10px;">
 </div>
 
 ## 💡 Sample MongoDB Document
