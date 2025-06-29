@@ -9,9 +9,9 @@ scheduler = BlockingScheduler()
     day=None,         # e.g. 1-31
     week=None,        # e.g. 1-53
     day_of_week=None, # e.g. 'mon', 'tue', ..., 'sun' or 0-6
-    hour=0,
+    hour=0,           # e.g 1:15 pm => hour=13 minute=15
     minute=0
-) # Runs daily at mid night
+) # 0:0 => Runs daily at mid night
 
 def scheduled_task():
     print("Running scheduled crawl + change detection...")

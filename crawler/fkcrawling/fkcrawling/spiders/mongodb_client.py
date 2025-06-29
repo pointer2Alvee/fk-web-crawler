@@ -111,7 +111,7 @@ def insert_to_db(book_name, book_description, book_category,book_price_with_tax,
                     }
             """
                     
-            # ** --> Change Detection : compare and track changes only fingerprint changes - with fingerprinting strategy 
+            # ** --> Change Detection : compare and track changes only fingerprint changes - with fingerprinting strategy - USED
             old_fingerprint = existing.get("fingerprint")
             new_fingerprint = doc["fingerprint"]
             

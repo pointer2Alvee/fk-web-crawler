@@ -39,7 +39,7 @@ class CrawlingSpider(scrapy.Spider):
         books = response.css('article.product_pod')
         
         # Extracts all book's url in the current page
-        for book in books: # NOTE:- for testing -  books[:1]
+        for book in books:      # NOTE:- for testing -  books[:1]
             relative_url = book.css('h3 a ::attr(href)').get()
             
             # Some book_url have 'catalogue/' & some don't

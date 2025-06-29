@@ -28,7 +28,7 @@ db = client.scraped_books
 # Get collection/table "books" 
 collection_books = db["books"]
 
-# @router.get("/")
+# @router.get("/") # - Testing
 # def home():
 #     return {"Welcome to fk-crawler API swagger UI"}
 
@@ -116,5 +116,5 @@ def get_book_by_id(request : Request, book_id: str, api_key: str = Depends(verif
     # Validate through Pydantic
     return Book(**book)
     
-    # manual serialization
+    # manual serialization  - NOT USED
     # return convert_individual_book(book)
