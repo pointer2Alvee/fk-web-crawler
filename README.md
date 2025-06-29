@@ -146,6 +146,13 @@ scrapy crawl fkcrawler
 
 ## 🗓️ Run Scheduler - Runs Cralwer + Change Report Generator
 
+In daily_scheduler.py :- 
+hour=13,
+minute=15
+- Put hour and minute at the time you want to schedule the scheduler
+- Here the scheduler will run daily at 13:15 or 1:15 PM
+
+
 ```bash
 cd scheduler
 python daily_scheduler.py
@@ -237,11 +244,49 @@ tests/test_db.py .                                  [83%]
 ---
 
 
-## Demonestration
-<div style="display: flex; justify-content: space-around; align-items: center;">
-  <img src="utilities/assets/images/pic_1.png" alt="Image 1" style="width: 100%; margin: 10px;">
-</div>
+## Demonestration - 
+
+### - mongoDB
 ---
+<div style="display: flex; justify-content: space-around; align-items: center;">
+  <img src="utilities/assets/images/mdb_1.png" alt="Image 1" style="width: 100%; margin: 10px;">
+</div>
+<div style="display: flex; justify-content: space-around; align-items: center;">
+  <img src="utilities/assets/images/mdb_2.png" alt="Image 1" style="width: 50%; margin: 10px;">
+   <img src="utilities/assets/images/mdb_3.png" alt="Image 1" style="width: 50%; margin: 10px;">
+</div>
+
+
+### - log
+<div style="display: flex; justify-content: space-around; align-items: center;">
+  <img src="utilities/assets/images/log.png" alt="Image 1" style="width: 100%; margin: 10px;">
+</div>
+
+### - report
+<div style="display: flex; justify-content: space-around; align-items: center;">
+  <img src="utilities/assets/images/report.png" alt="Image 1" style="width: 100%; margin: 10px;">
+</div>
+
+### - fastapi
+<div style="display: flex; justify-content: space-around; align-items: center;">
+  <img src="utilities/assets/images/fastapi_1.png" alt="Image 1" style="width: 100%; margin: 10px;">
+</div>
+
+#### - fastapi - GET/Books
+<div style="display: flex; justify-content: space-around; align-items: center;">
+  <img src="utilities/assets/images/fastapi_2.png" alt="Image 1" style="width: 100%; margin: 10px;">
+</div>
+<div style="display: flex; justify-content: space-around; align-items: center;">
+  <img src="utilities/assets/images/fastapi_3.png" alt="Image 1" style="width: 100%; margin: 10px;">
+</div>
+
+#### - fastapi - GET/{Book_id} & GET/{change_log}
+<div style="display: flex; justify-content: space-around; align-items: center;">
+  <img src="utilities/assets/images/fastapi_4.png" alt="Image 1" style="width: 100%; margin: 10px;">
+</div>
+<div style="display: flex; justify-content: space-around; align-items: center;">
+  <img src="utilities/assets/images/fastapi_5.png" alt="Image 1" style="width: 100%; margin: 10px;">
+</div>
 
 ## 💡 Sample MongoDB Document
 
