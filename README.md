@@ -325,31 +325,26 @@ tests/test_db.py .                                  [83%]
 ## 🧾 Deliverables Checklist (from PDF ✅)
 
 | Requirement                               | Status     |
-|------------------------------------------|------------|
+|-------------------------------------------|------------|
 | ✅ Crawler using Scrapy                  | Done       |
 | ✅ Scheduler with change detection       | Done       |
-| ✅ Change log storage                    | Done       |
+| ✅ Change log storage/collection         | Done       |
 | ✅ FastAPI server                        | Done       |
 | ✅ API key + rate limiting               | Done       |
 | ✅ Swagger UI                            | Done       |
 | ✅ `.env` support                        | Done       |
 | ✅ Daily reports (JSON + CSV)            | Done       |
 | ✅ Screenshot/logs of scheduler/crawler  | ✔️ See `/logs` |
-| ✅ Folder structure & README             | ✅ This file |
 
 ---
 
 ## 📬 Postman / Swagger UI
 
-Use [http://localhost:8000/docs](http://localhost:8000/docs) to interactively test all endpoints.
-
+Use [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs) to interactively test all endpoints.
 
 ---
 
 ## 🧠 Future Improvements
-
-- Add unit + integration tests
-- Dockerize for consistent environments
 - Add email alerts for major changes
 - Add export formats: CSV, PDF, Excel
 
@@ -366,9 +361,7 @@ Use [http://localhost:8000/docs](http://localhost:8000/docs) to interactively te
 ### 🙏 Acknowledgements
 - Open-source contributors and net
 - Youtube videos :- 
-  * [1](https://www.youtube.com/watch?v=mBoX_JCKZTE) 
-  * [2](https://www.youtube.com/watch?v=GogxAQ2JP4A)
-  * [3](https://www.youtube.com/watch?v=rvFsGRvj9jo)
+  * [1](https://www.youtube.com/watch?v=mBoX_JCKZTE) , [2](https://www.youtube.com/watch?v=GogxAQ2JP4A), [3](https://www.youtube.com/watch?v=rvFsGRvj9jo)
 ---
 
 ## 📄 License
